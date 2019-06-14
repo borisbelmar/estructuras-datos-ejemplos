@@ -12,6 +12,7 @@ public class BST {
         return this.root;
     }
 
+    // Insertar recursivo (Método público)
     public void add(Node node) {
         if (root != null) {
             add(root, node);
@@ -20,7 +21,7 @@ public class BST {
         }
     }
 
-    // Insertar recursivo
+    // Insertar recursivo (Método privado)
     private void add(Node base, Node node) {
         if (node.getId() < base.getId()) {
             if (base.getLeft() != null) {
@@ -37,19 +38,52 @@ public class BST {
         }
     }
 
-    // Pendiente de modificación
-    public Node search(int id) {
+
+    // Método buscar recursivo (Public)
+    public boolean lookup(int id) {
+        if (root == null) {
+            return false;
+        }else {
+            return this.lookup(root, id);
+        }
+    }
+
+    // Método buscar recursivo (Private)
+    private boolean lookup(Node base, int id) {
+        if (id == base.getId()) {
+            return true;
+        }
+        if (id < base.getId()) {
+            if (base.getLeft() != null) {
+                return lookup(base.getLeft(), id);
+            }else {
+                return false;
+            }
+        } else {
+            if (base.getRight() != null) {
+                return lookup(base.getRight(), id);
+            }else {
+                return false;
+            }
+        }
+    }
+
+    // Método buscar clásico
+    public boolean search(int id) {
         Node actual = root;
         while (actual.getId() != id) {
-            if (id < actual.getId())
+            if (id < actual.getId()) {
                 actual = actual.getLeft();
-            else
+            } else {
                 actual = actual.getRight();
-            if (actual == null)
-                return null;
+            }
+            if (actual == null) {
+                return false;
+            }
         }
-        return actual;
+        return true;
     }
+    // Pendiente de modificación
 
     // Mostrar en Inorden
     public void inorder(Node localRoot) {

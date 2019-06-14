@@ -17,6 +17,22 @@ public class Main {
         tree.add(node4);
         tree.add(node5);
 
+        int search1 = 12;
+        int search2 = 39;
+
+        if (tree.lookup(search1)) {
+            System.out.println(search1 + " existe");
+        } else {
+            System.out.println(search2 + " no existe");
+        }
+        System.out.println("");
+        if (tree.lookup(search2)) {
+            System.out.println(search1 + " existe");
+        } else {
+            System.out.println(search2 + " no existe");
+        }
+        System.out.println("");
+
         tree.preorder(tree.getRoot());
         System.out.println("");
         tree.inorder(tree.getRoot());
