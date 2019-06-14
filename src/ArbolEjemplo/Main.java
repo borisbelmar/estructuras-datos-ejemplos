@@ -2,35 +2,30 @@ package ArbolEjemplo;
 
 public class Main {
 
+    private static void exists(BST bst, int id) {
+        if (bst.lookup(id)) {
+            System.out.println(id + " existe");
+        } else {
+            System.out.println(id + " no existe");
+        }
+    }
+
     public static void main(String[] args) {
-        Node node1 = new Node(20);
-        Node node2 = new Node(35);
-        Node node3 = new Node(23);
-        Node node4 = new Node(15);
-        Node node5 = new Node(12);
 
         BST tree = new BST();
 
-        tree.add(node1);
-        tree.add(node2);
-        tree.add(node3);
-        tree.add(node4);
-        tree.add(node5);
+        tree.add(new Node(20));
+        tree.add(new Node(35));
+        tree.add(new Node(23));
+        tree.add(new Node(15));
+        tree.add(new Node(12));
 
-        int search1 = 12;
-        int search2 = 39;
-
-        if (tree.lookup(search1)) {
-            System.out.println(search1 + " existe");
-        } else {
-            System.out.println(search2 + " no existe");
-        }
+        exists(tree,30);
         System.out.println("");
-        if (tree.lookup(search2)) {
-            System.out.println(search1 + " existe");
-        } else {
-            System.out.println(search2 + " no existe");
-        }
+        exists(tree,23);
+        System.out.println("");
+        exists(tree,15);
+
         System.out.println("");
 
         tree.preorder(tree.getRoot());
