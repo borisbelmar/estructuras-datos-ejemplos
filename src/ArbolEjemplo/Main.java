@@ -17,6 +17,11 @@ public class Main {
         tree.add(node4);
         tree.add(node5);
 
+        tree.preorder(tree.getRoot());
+        System.out.println("");
         tree.inorder(tree.getRoot());
+        System.out.println("");
+        tree.postorder(tree.getRoot());
+
     }
 }
