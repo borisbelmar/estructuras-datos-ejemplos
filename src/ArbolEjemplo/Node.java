@@ -5,6 +5,10 @@ public class Node {
     private Node left;
     private Node right;
 
+    public void show() {
+        System.out.print(id + " ");
+    }
+
     public Node (int id) {
         this.id = id;
     }
